@@ -6,23 +6,27 @@ inp=[]
 for i in range(0,t):
     inp.append(input())
 
-def check_prime(n):
-    i=2
-    sq_rt=int(sqrt(n))
-    while i<= sq_rt:
-        if n % i == 0:
-            return False
-        i+=1
-    return True
 
 for i in inp:
-    j=i/2
-    while j>=2:
-        if i%j==0 and check_prime(j):
-            print j
-            break
-        j-=1
-    if j==1:
-        print i
-            
-    
+    if i%2==0:
+        largest_prime=2
+    else:
+        largest_prime=1
+    while i%2==0:
+        i/=2
+
+    if i==1:
+        print largest_prime
+    else:
+        j=3
+        n=sqrt(i)
+        while j<=n:
+            while i%j==0:
+                i/=j
+                largest_prime=j
+            j+=2
+        if i>largest_prime:
+            print i
+        else:
+            print largest_prime
+
